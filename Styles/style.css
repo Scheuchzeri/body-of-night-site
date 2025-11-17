@@ -13,6 +13,26 @@
 
 }
 
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.header-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.header-item {
+  font-family: var(--primary-font);
+  color: var(--color-text);
+  padding: 0.25rem;
+}
+
 .main-content {
   width: 100%;
   max-width: 1200px;
