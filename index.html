@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/Styles/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/x-icon"
@@ -15,16 +18,41 @@
     <title>body of night</title>
   </head>
   <body>
-    <main class="main-content">
-      <header class="header-content">
-        <h1>body of night</h1>
-        <div class="header-item-container">
-          <div class="header-item">Author</div>
-          <div class="header-item">Preface</div>
-          <div class="header-item">Contact</div>
+    <header class="header-content">
+      <h1
+        class="central-header tab-link"
+        data-tab="main-section"
+        id="main-link"
+      >
+        body of night
+      </h1>
+      <div class="header-item-container">
+        <div class="header-item tab-link" data-tab="author-section">Author</div>
+        <div class="header-item tab-link" data-tab="preface-section">
+          Preface
         </div>
-      </header>      
-      <div class="main-body">
+        <div class="header-item tab-link" data-tab="contact-section">
+          Contact
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="secondary-section tab" id="author-section">
+        <div>
+          <p>Here the author page will be appear.</p>
+        </div>
+      </section>
+      <section class="secondary-section tab" id="preface-section">
+        <div>
+          <p>Here, the preface will be written.</p>
+        </div>
+      </section>
+      <section class="secondary-section tab" id="contact-section">
+        <div>
+          <p>Here, a contact-section will be created.</p>
+        </div>
+      </section>
+      <section class="main-section tab" id="main-section">
         <div class="verse-body">
           <p>It is only in the park of this city,</p>
           <p>I will be able to meet you.</p>
@@ -40,7 +68,8 @@
           <p>Our names</p>
           <p>written on each others' lips.</p>
         </div>
-      </div>
+      </section>
     </main>
+    <script src="../Scripts/scripts.js"></script>
   </body>
 </html>
