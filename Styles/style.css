@@ -89,6 +89,21 @@
   padding-bottom: 0.15rem;
 }
 
+.verse-body pre {
+  font-size: var(--text-font-size);
+  font-family: var(--primary-font);
+  color: var(--color-text);
+  margin: 0;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+
+.verse-divider {
+  display: block;
+  width: 100%;
+  height: var(--spacing-verses);
+}
+
 h1 {
   font-size: var(--header-font-size);
   color: var(--color-header);
