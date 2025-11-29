@@ -256,6 +256,10 @@ footer {
   display: none;
 }
 
+.mobile-quote {
+  display: none;
+}
+
 .base-section {
   display: none;
   grid-column: 2;
@@ -414,6 +418,15 @@ footer {
 
   .tab-link:hover {
     color: var(--selected-color);
+  }
+
+  .mobile-quote {
+    display: block;
+    background-color: var(--selected-color);
+    margin: var(--size-small);
+    text-shadow: 2px 2px 0 white;
+    color: var(--selected-color);
+    border-radius: 4px;
   }
 
   .recording.inactive {
