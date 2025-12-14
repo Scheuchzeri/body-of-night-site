@@ -1,52 +1,79 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Script Connected.");
-  tabSwitch();
-  hamMenuLogic();
-});
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script recognized.");
 
-function tabSwitch() {
-  const tabs = document.querySelectorAll(".tab");
-  const tabLinks = document.querySelectorAll(".tab-link");
+  /* Constants */ 
 
-  tabLinks.forEach((link) =>
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      tabs.forEach((tab) => tab.classList.remove("active"));
+  const sections = document.querySelectorAll('section');
+  const sectionLinks = document.querySelectorAll('.tab-link');
+  const hamMenu = document.querySelector('.ham-menu');
+  const navBar = document.querySelector('nav');
+  
 
-      const targetTabId = e.target.dataset.tab;
-      const targetTab = document.getElementById(targetTabId);
+  function navigation() {
 
-      targetTab.classList.add("active");
-    })
-  );
-}
+    /* 
+    The purpose of this function is to enable navigation of the SPA by enabling the user to switch between
+    active sections, as well as to set up the hamMenu for mobile use. 
+    */
 
-function hamMenuLogic() {
-  const hamMenu = document.querySelector(".ham-menu");
-  const tabLinks = document.querySelectorAll(".tab-link");
-  const navBar = document.querySelector(".nav-section");
-  const audio = document.querySelector(".recording");
-
-  document.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (e.target !== hamMenu) {
-      console.log("Operation started.");
-      navBar.classList.remove("active");
-      hamMenu.classList.remove("active");
-    } else if (e.target === hamMenu) {
-      hamMenu.classList.contains("active")
-        ? hamMenu.classList.remove("active")
-        : hamMenu.classList.add("active");
-      navBar.classList.toggle("active");
-      audio.classList.toggle("inactive");
+    const switchSection = (dataVal) => {
+      sections.forEach(el => el.id === dataVal ? el.classList.add('active') : el.classList.remove('active'));
     }
-  });
 
-  tabLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      hamMenu.classList.remove("active");
-      navBar.classList.remove("active");
-    });
-  });
-}
+    let activeTabId = null;
+
+    document.addEventListener('click', (e) => {
+
+      /* First I add an event-listener to the entire document; then I filter for those parts of the DOM that are
+      relevant for navigation. If no such element has been clicked, the function returns.
+      */
+
+      const target = e.target.closest('.tab-link, .ham-menu, nav-section');
+
+      console.log(target);
+
+      if(!target) {
+        console.log('No target selected.');
+
+        navBar.classList.remove('active');
+        hamMenu.classList.remove('active');
+
+      } else {
+        currentSection = Array.from(sections).find((el) => el.classList.contains('active'));
+        let activeTabId = currentSection.id;
+        console.log(activeTabId); /* Here I also store the id of the current section so that the script can reference it later; */
+
+        const links = Array.from(sectionLinks);
+
+        /*
+        Now I condition the reaction of the script based on which element has been clicked. 
+        */
+
+        if (target === target.closest('.ham-menu')) {
+          console.log('HamMenu selected!');
+
+          hamMenu.classList.contains('active') ? hamMenu.classList.remove('active') : hamMenu.classList.add('active');
+          navBar.classList.toggle('active');
+          switchSection(activeTabId);
+
+          } else if (target.classList.contains('tab-link')) {
+          console.log('MenuLink selected!');
+
+          const dataValue = target.dataset.tab;
+          switchSection(dataValue);
+          hamMenu.classList.remove('active');
+          navBar.classList.remove('active');  
+          
+
+        } else {
+          navBar.classList.remove('active');
+        }
+         return;
+      }
+    })
+  }
+
+  navigation();
+
+
+})
