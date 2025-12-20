@@ -3,7 +3,7 @@
 :root {
   --standard-font: "New Courier", "Courier", "Helvetica", "Arial", sans-serif;
   --header-font: "Helvetica", "Arial";
-  --standard-color: black;
+  --standard-color: rgb(17, 17, 17);
   --selected-color: rgb(73, 135, 241);
   --hover-color: lightgrey;
 
@@ -147,7 +147,8 @@ footer {
 
 .opening-header {
   font-size: clamp(var(--size-double), calc(2 * var(--size-double)), calc(3 * var(--size-double)));
-  color: var(--header-font);
+  font-style: var(--header-font);
+  color: var(--standard-color);
   position: sticky;
   bottom: 82vh;
 }
@@ -301,6 +302,27 @@ footer {
   width: 100%;
   height: var(--size-double);
 
+}
+
+.image-icon {
+  position: absolute;
+  right: 30%;
+  top: 50%;
+  transition: 0.3s ease;
+  padding: 4px;
+  
+  border-radius: 50%;
+}
+
+.image-icon:hover {
+  cursor: pointer;
+  border: 2px solid var(--standard-color);
+  
+}
+
+.image-container{
+  display: none;
+  color: red;
 }
 
 .verse {
