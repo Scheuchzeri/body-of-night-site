@@ -26,21 +26,20 @@
 
 /* Tag Selectors */
 
+
+
 main {
-  display: grid;
-  grid-template-columns: clamp(2em, 20vw, 650px) clamp(2em, 55vw, 1200px) clamp(
-      2em,
-      25vw,
-      800px
-    );
-  column-gap: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   margin-bottom: 50%;
 }
 
 nav {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: center;
   gap: var(--size-small);
@@ -97,15 +96,6 @@ li:hover {
   color: var(--hover-color);
 }
 
-img {
-  position: fixed;
-  top: 100;
-  bottom: 0;
-  width: 100%;
-  max-width: calc(10 * var(--size-standard));
-  object-fit: contain;
-}
-
 footer {
   width: 100%;
 }
@@ -113,6 +103,7 @@ footer {
 /* Class Selectors */
 
 .banner {
+  display: none;
   width: 100%;
   font-family: var(--standard-font);
   font-size: var(--size-standard);
@@ -145,6 +136,25 @@ footer {
   height: 4px;
   background-color: black;
   transition: 0.3s ease;
+}
+
+.opening-site {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s ease;
+}
+
+.opening-header {
+  font-size: clamp(var(--size-double), calc(2 * var(--size-double)), calc(3 * var(--size-double)));
+  color: var(--header-font);
+  position: sticky;
+  bottom: 82vh;
+}
+
+.opening-image {
+  width: 100%;
+  object-fit: contain;
 }
 
 .nav-section:hover .topic-container {
@@ -279,11 +289,12 @@ footer {
   white-space-collapse: preserve-breaks;
   align-self: center;
   width: 100%;
-  font-size: clamp(var(--size-small), var(--size-standard), var(--size-medium));
+  font-size: clamp(var(--size-standard), var(--size-medium), calc(2 * var(--size-medium)));
   font-family: var(--standard-font);
   color: var(--standard-color);
   margin-bottom: var(--size-medium);
   line-height: 1.4;
+  position: relative;
 }
 
 .verse-divider {
