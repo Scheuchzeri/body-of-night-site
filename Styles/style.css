@@ -274,6 +274,24 @@ footer {
   flex-direction: column;
 }
 
+.verse-container {
+  min-width: 0;
+  white-space-collapse: preserve-breaks;
+  align-self: center;
+  width: 100%;
+  font-size: clamp(var(--size-small), var(--size-standard), var(--size-medium));
+  font-family: var(--standard-font);
+  color: var(--standard-color);
+  margin-bottom: var(--size-medium);
+  line-height: 1.4;
+}
+
+.verse-divider {
+  width: 100%;
+  height: var(--size-double);
+
+}
+
 .verse {
   min-width: 0;
   white-space-collapse: preserve-breaks;
