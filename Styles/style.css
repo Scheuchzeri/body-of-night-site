@@ -317,7 +317,17 @@ footer {
 .image-icon:hover {
   cursor: pointer;
   border: 2px solid var(--standard-color);
-  
+  transition: 0.3s ease;
+  width: 168px;
+  height: 168px;
+}
+
+.image-icon:hover + .image-container {
+  display: block;
+  position: absolute;
+  right: -25%;
+  top: 50%;
+
 }
 
 .image-container{
